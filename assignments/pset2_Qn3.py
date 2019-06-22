@@ -1,6 +1,6 @@
 # quick sort code
 from random import randint
-import time
+import time, statistics
 
 comparisons = 0
 
@@ -77,14 +77,12 @@ def medianPivot(arr, leftIndex, rightIndex):
         
     mid = (rightIndex - leftIndex ) // 2 + leftIndex
 
-    median = [arr[rightIndex], arr[leftIndex], arr[mid]]
+    median = statistics.median([arr[rightIndex], arr[leftIndex], arr[mid]])
 
-    median = sorted(median)
-
-    if arr[mid] == median[1]:
+    if arr[mid] == median:
         arr[mid], arr[leftIndex] = arr[leftIndex], arr[mid]
 
-    elif arr[rightIndex] == median[1]:
+    elif arr[rightIndex] == median:
         arr[leftIndex], arr[rightIndex] = arr[rightIndex], arr[leftIndex]
 
 if __name__ == "__main__":
